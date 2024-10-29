@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'locations:adaugare' %}">Adaugare locatii</a>
+    <table class="table">
+        <thead>
+            <tr>
+               <th>Index</th>
+               <th>Hotel</th>
+               <th>Camera</th>
+               <th>Pret/noapte</th>
+               <th>Stare</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in location_list %}
+                <tr>
+                   <td>{{ forloop.counter }}</td>
+                   <td>{{ item.hotel }}</td>
+                   <td>{{ item.camera }}</td>
+                   <td>{{ item.pret }}</td>
+                   <td>{% if item.active is True %}
+                       Libera
+                       {% else %}
+                       Ocupata
+                       {% endif %}
+                   </td>
+                   <td>
+                       <a class="btn btn-outline-success" href="{% url 'locations:modifica' item.id %}">Editare</a>
+                       {% if item.active is True %}
+                       <a class="btn btn-outline-danger" href="{% url 'locations:indisponibila' item.id %}">Indisponibila</a>
+                       {% else %}
+                       <a class="btn btn-outline-warning" href="{% url 'locations:disponibila' item.id %}">Disponibila</a>
+                       {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

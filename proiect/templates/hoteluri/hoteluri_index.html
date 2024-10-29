@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'hoteluri:adaugare_hotel' %}">Adaugare hotel</a>
+    <table class="table">
+        <thead>
+            <tr>
+               <th>Index</th>
+               <th>Nume</th>
+               <th>Adresa</th>
+               <th>Categorie</th>
+               <th>Telefon</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in hoteluri_list %}
+                <tr>
+                   <td>{{ forloop.counter }}</td>
+                   <td>{{ item.nume }}</td>
+                   <td>{{ item.adresa }}</td>
+                   <td>{{ item.categorie }}</td>
+                   <td>{{ item.telefon }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

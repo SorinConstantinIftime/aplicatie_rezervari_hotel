@@ -5,6 +5,7 @@ class Location(models.Model):
 
     hotel = models.CharField(max_length=50)
     camera = models.CharField(max_length=100)
+    pret = models.DecimalField(max_digits=6, decimal_places=2)
     active = models.BooleanField(default=True)
     creat_la = models.DateTimeField(auto_now_add=True, blank=True)
     actualizat_la = models.DateTimeField(auto_now=True, blank=True)
