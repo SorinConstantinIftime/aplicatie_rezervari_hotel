@@ -14,6 +14,7 @@ class CreateHoteluriView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse('hoteluri:lista_hoteluri')
 
+
 class HoteluriView(LoginRequiredMixin, ListView):
     model = Hoteluri
     template_name = 'hoteluri/hoteluri_index.html'

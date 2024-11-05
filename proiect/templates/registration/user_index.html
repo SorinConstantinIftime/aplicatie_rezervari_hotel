@@ -5,18 +5,18 @@
         <thead>
             <tr>
                <th>Index</th>
-               <th>Nume</th>
                <th>Prenume</th>
+               <th>Nume</th>
                <th>email</th>
-               <th>Stare</th>
+               <th>Username</th>
             </tr>
         </thead>
         <tbody>
             {% for item in user_list %}
                 <tr>
                    <td>{{ forloop.counter }}</td>
-                   <td>{{ item.nume }}</td>
-                   <td>{{ item.prenume }}</td>
+                   <td>{{ item.first_name }}</td>
+                   <td>{{ item.last_name }}</td>
                    <td>{{ item.email }}</td>
                    <td>{{ item.username }}</td>
                 </tr>

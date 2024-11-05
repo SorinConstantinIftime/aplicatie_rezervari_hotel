@@ -1,9 +1,21 @@
-<!DOCTYPE html>
+{% load static %}
+
+<! DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Rezervari Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'aplicatie_rezervari_hotel/css/styles.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-</head>
+    <style>
+        p {
+            background-image: url("{% static 'aplicatie_rezervari_hotel/images/background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+    </style>
 <body>
 <div class="container">
     <div class="row">

@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import TextInput
+from django.shortcuts import render
+from django.contrib.admin.widgets import AdminDateWidget, AdminSplitDateTime
 
 
 class NewAccountForm(forms.ModelForm):
@@ -25,3 +27,14 @@ class NewAccountForm(forms.ModelForm):
         if User.objects.filter(username=email_value).exists():
             self._errors['username'] = self.error_class('Username-ul deja exista')
         return field_data
+
+
+class DTForm(forms.Form):
+    your_name = forms.CharField(max_length=64)
+    date_input = forms.DateField(widget=AdminDateWidget())
+    date_time_input = forms.DateField(widget=AdminSplitDateTime())
+
+
+def index(request):
+    form = DTForm()
+    return render(request, 'index.html', form)

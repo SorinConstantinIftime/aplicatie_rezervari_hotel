@@ -10,6 +10,7 @@ class UserListView(LoginRequiredMixin, ListView):
     model = User
     template_name = 'registration/user_index.html'
 
+
 class CreateNewAccount(LoginRequiredMixin, CreateView):
     model = User
     template_name = 'forms.html'
